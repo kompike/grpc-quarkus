@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.kompike";
+option java_outer_classname = "UserServiceProto";
+
+package service;
+
+import "google/protobuf/empty.proto";
+import "user.proto"; 
+
+service UserService { 
+ rpc GetUserById (model.UserId) returns (model.User) {}
+ rpc GetAllUsers (google.protobuf.Empty) returns (stream model.UserList) {}
+}
