@@ -1,0 +1,30 @@
+syntax = "proto3"; 
+
+option java_multiple_files = true;
+option java_package = "com.kompike";
+option java_outer_classname = "UserProto";
+
+package model;
+
+message User {
+ int32 id = 1; 
+ string name = 2;
+ string email = 3;
+ Role role = 4;
+ bool is_blocked = 5;
+}
+
+enum Role { 
+ ROLE_UNSPECIFIED = 0;
+ USER = 1;
+ SUPER_USER = 2;
+ ADMIN = 3;
+}
+
+message UserId {
+ int32 id = 1;
+}
+
+message UserList {
+ repeated User users = 1;
+}
